@@ -37,10 +37,8 @@ function Player:keyPressed(key)
     -- If the spacebar is pressed
     if key == "space" then
         -- Put a new instance of Bullet inside listOfBullets
-        -- Fire the bullets from the center of the image
+        -- Fire the bullets from the center of the character
         table.insert(listOfBullets, Bullet((self.x + self.width/2), (self.y + self.height/2), self.angle, self.cos, self.sin))
-        -- table.insert(listOfBullets, Bullet((self.x + self.width/2), (self.y + self.height/2) + 10, self.angle, self.cos, self.sin))
-        -- table.insert(listOfBullets, Bullet((self.x + self.width/2), (self.y + self.height/2), self.angle, self.cos, -self.sin))
     end
 end
 

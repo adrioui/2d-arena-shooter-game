@@ -21,7 +21,14 @@ function Enemy:update(dt, target_y, target_x)
     self.sin = math.sin(self.angle)
 
     self.x = self.x + self.speed * self.cos * dt
-    self.y = self.y + self.speed * self.sin * dt
+    self.y = self.y + self.speed * self.sin * dt    
+end
+
+function Enemy:shoot(target)
+    if self then
+        timer:every(3, function ()
+            table.insert(listOfBulletsFromEnemies, Bullet((self.x + self.width/2), (self.y + self.height/2), target.angle, target.cos, target.sin)) end)
+    end
 end
 
 -- Draw the enemy

@@ -19,8 +19,8 @@ end
 
 function love.load()
     -- Import the libraries
-    Object = require "classic"
-    Timer = require "timer"
+    Object = require "library.classic"
+    Timer = require "library.timer"
     require "player"
     require "bullet"
     require"enemy"
@@ -35,11 +35,14 @@ function love.load()
 
     -- Table for storing the bullets
     listOfBullets = {}
+    listOfBulletsFromEnemies = {}
 
     -- Table for storing the enemies
     listOfEnemies = {}
 
-    timer:every(1, function() table.insert(listOfEnemies, Enemy(math.random(0, window_width), math.random(0, window_height))) end)
+    -- Create enemy every second
+    -- timer:every(1, function() table.insert(listOfEnemies, Enemy(math.random(0, window_width), math.random(0, window_height))) end)
+    timer:every(2, function() table.insert(listOfEnemies, Enemy(math.random(player.x, window_width), math.random(player.y, window_height))) end)
 end
 
 function love.keypressed(key)
@@ -74,8 +77,10 @@ function love.update(dt)
 
     -- For every enemy in the table
     for i,v in ipairs(listOfEnemies) do
-        -- Update the enemy
+        -- Move the enemy toward player
         v:update(dt, (player.y + player.height/2), (player.x + player.width/2))
+
+        v:shoot(player)
 
         -- If the enemy and player collided
         if checkCollision(v, player) then
@@ -91,6 +96,12 @@ function love.draw()
 
     -- For every bullet in the table
     for i,v in ipairs(listOfBullets) do
+        -- Draw the bullet
+        v:draw()
+    end
+
+    -- For every bullet in the table
+    for i,v in ipairs(listOfBulletsFromEnemies) do
         -- Draw the bullet
         v:draw()
     end
