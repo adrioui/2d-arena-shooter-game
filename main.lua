@@ -42,13 +42,13 @@ function love.load()
 
     -- Create enemy every second
     -- timer:every(1, function() table.insert(listOfEnemies, Enemy(math.random(0, window_width), math.random(0, window_height))) end)
-    timer:every(2, function() table.insert(listOfEnemies, Enemy(math.random(player.x, window_width), math.random(player.y, window_height))) end)
+    timer:every(2, function() table.insert(listOfEnemies, Enemy(math.random(player.x, window_width), math.random(player.y, window_height))) end) 
 end
 
 function love.keypressed(key)
     --Player pressed "space" key
     --Insert bullet to the table
-    player:keyPressed(key)    
+    player:keyPressed(key)
 end
 
 function love.update(dt)
@@ -80,13 +80,13 @@ function love.update(dt)
         -- Move the enemy toward player
         v:update(dt, (player.y + player.height/2), (player.x + player.width/2))
 
-        v:shoot(player)
-
         -- If the enemy and player collided
         if checkCollision(v, player) then
             -- Make the enemy dissapear
             table.remove(listOfEnemies, i)
         end
+
+        v:shoot()
     end    
 end
 
