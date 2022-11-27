@@ -1,6 +1,7 @@
 -- Create a class
 Enemy = Object:extend()
 
+-- Initiate the enemy
 function Enemy:new(x, y) 
     self.x = x
     self.y = y
@@ -11,6 +12,8 @@ function Enemy:new(x, y)
     self.speed = 200
 end
 
+-- Credit to someone in stackoverflow
+-- Make the enemy moves toward its target
 function Enemy:update(dt, target_y, target_x)
     self.angle = math.atan2(target_y - self.y, target_x - self.x)
     
@@ -21,6 +24,7 @@ function Enemy:update(dt, target_y, target_x)
     self.y = self.y + self.speed * self.sin * dt
 end
 
+-- Draw the enemy
 function Enemy:draw()
     love.graphics.rectangle("line", self.x, self.y, self.width, self.height)
 end
