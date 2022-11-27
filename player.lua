@@ -11,7 +11,7 @@ function Player:new()
     self.width = 25
     self.height = 25
 
-    self.speed = 200
+    self.speed = 300
 end
 
 -- Get the distance from the circle to the mouse cursor using pythagorean theorem
