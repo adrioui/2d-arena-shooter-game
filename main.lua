@@ -38,11 +38,12 @@ function love.load()
     listOfBulletsFromEnemies = {}
 
     -- Table for storing the enemies
-    listOfEnemies = {}
+    listOfEnemies1 = {}
+    listOfEnemies2 = {}
 
-    -- Create enemy every second
-    -- timer:every(1, function() table.insert(listOfEnemies, Enemy(math.random(0, window_width), math.random(0, window_height))) end)
-    timer:every(2, function() table.insert(listOfEnemies, Enemy(math.random(player.x, window_width), math.random(player.y, window_height))) end) 
+    -- Create enemy
+    timer:every(1, function() table.insert(listOfEnemies1, Enemy(math.random(0, window_width), math.random(0, window_height))) end)
+    timer:every(2, function() table.insert(listOfEnemies2, Enemy(math.random(player.x, window_width), math.random(player.y, window_height))) end) 
 end
 
 function love.keypressed(key)
@@ -64,30 +65,37 @@ function love.update(dt)
         -- Check its collision with the window
         v:checkCollision(window_width, window_height) 
         
-        -- For every enemy in the table
-        for j,k in ipairs(listOfEnemies) do
+        -- For every enemy type 1 in the table
+        for j,k in ipairs(listOfEnemies1) do
             -- If enemy exists and the bullet and enemy collide
             if k ~= nil and checkCollision(v, k) then
                 -- Make the enemy and bullet dissapear
                 table.remove(listOfBullets, i)
-                table.remove(listOfEnemies, j)
+                table.remove(listOfEnemies1, j)
             end
         end
     end
 
-    -- For every enemy in the table
-    for i,v in ipairs(listOfEnemies) do
+    -- For every enemy type 1 in the table
+    for i,v in ipairs(listOfEnemies1) do
         -- Move the enemy toward player
         v:update(dt, (player.y + player.height/2), (player.x + player.width/2))
 
         -- If the enemy and player collided
         if checkCollision(v, player) then
             -- Make the enemy dissapear
-            table.remove(listOfEnemies, i)
+            table.remove(listOfEnemies1, i)
         end
-
+    end
+    
+    -- For every enemy type 2 in the table
+    for i,v in ipairs(listOfEnemies2) do
+        -- Move the enemy toward player
+        v:update(dt, (player.y + player.height/2), (player.x + player.width/2))
+        
+        -- Shoot bullets
         v:shoot()
-    end    
+    end  
 end
 
 function love.draw()
@@ -106,9 +114,15 @@ function love.draw()
         v:draw()
     end
 
-    -- For every bullet in the table
-    for i,v in ipairs(listOfEnemies) do
+    -- For every bullet type 1 in the table
+    for i,v in ipairs(listOfEnemies1) do
         -- Draw the enemy
         v:draw()
     end
+
+    -- For every enemy type 2 in the table
+    for i,v in ipairs(listOfEnemies2) do
+        -- Move the enemy toward player
+        v:draw()
+    end  
 end
