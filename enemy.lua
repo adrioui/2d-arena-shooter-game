@@ -8,7 +8,7 @@ function Enemy:new(x, y)
     self.width = 50
     self.height = 50
 
-    self.speed = 300
+    self.speed = 200
 end
 
 function Enemy:update(dt, target_y, target_x)

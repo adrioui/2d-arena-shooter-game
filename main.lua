@@ -39,7 +39,7 @@ function love.load()
     -- Table for storing the enemies
     listOfEnemies = {}
 
-    timer:every(0.2, function() table.insert(listOfEnemies, Enemy(math.random(0, window_width), math.random(0, window_height))) end)
+    timer:every(1, function() table.insert(listOfEnemies, Enemy(math.random(0, window_width), math.random(0, window_height))) end)
 end
 
 function love.keypressed(key)
