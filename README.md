@@ -8,7 +8,7 @@ I'm hoping this game will make the player happy.
 
 ### How to download
 Download this zip file [2d Arena Shooter Game](https://drive.google.com/file/d/1cBo7Y07ilEMbzg_7tQlt4mxW592NeW_Z/view?usp=sharing), unzip all the files in a folder, and
-run the '.exe' file. 
+run the .exe file. 
 
 ### How to play
 Move your mouse cursor to move the ship; ship follows the mouse cursor. The farther the cursor to the ship the faster it moves.
