@@ -49,7 +49,7 @@ function love.keypressed(key)
 end
 
 function love.update(dt)
-    -- Update the timer so the bullets can disappear
+    -- Update the timer
     timer:update(dt)
     -- Update the player
     player:update(dt)
@@ -58,11 +58,14 @@ function love.update(dt)
     for i,v in ipairs(listOfBullets) do
         -- Update the bullet
         v:update(dt)
-        -- Check its collision
+        -- Check its collision with the window
         v:checkCollision(window_width, window_height) 
         
+        -- For every enemy in the table
         for j,k in ipairs(listOfEnemies) do
+            -- If enemy exists and the bullet and enemy collide
             if k ~= nil and checkCollision(v, k) then
+                -- Make the enemy and bullet dissapear
                 table.remove(listOfBullets, i)
                 table.remove(listOfEnemies, j)
             end
@@ -74,7 +77,9 @@ function love.update(dt)
         -- Update the enemy
         v:update(dt, (player.y + player.height/2), (player.x + player.width/2))
 
+        -- If the enemy and player collided
         if checkCollision(v, player) then
+            -- Make the enemy dissapear
             table.remove(listOfEnemies, i)
         end
     end    
