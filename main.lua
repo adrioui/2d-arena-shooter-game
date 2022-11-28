@@ -74,6 +74,16 @@ function love.update(dt)
                 table.remove(listOfEnemies1, j)
             end
         end
+
+        -- For every enemy of type 2 in the table
+        for j,k in ipairs(listOfEnemies2) do
+            -- If enemy exists and the bullet and enemy collide
+            if k ~= nil and checkCollision(v, k) then
+                -- Make the enemy and bullet dissapear
+                table.remove(listOfBullets, i)
+                table.remove(listOfEnemies2, j)
+            end
+        end
     end
 
     -- For every enemy of type 1 in the table
