@@ -42,8 +42,8 @@ function love.load()
     listOfEnemies2 = {}
 
     -- Create enemy
-    timer:every(1, function() table.insert(listOfEnemies1, Enemy(math.random(0, window_width), math.random(0, window_height))) end)
-    timer:every(2, function() table.insert(listOfEnemies2, Enemy(math.random(player.x, window_width), math.random(player.y, window_height))) end) 
+    timer:every(1, function() table.insert(listOfEnemies1, Enemy(math.random(0, window_width), math.random(0, window_height), 35, 35)) end)
+    timer:every(2, function() table.insert(listOfEnemies2, Enemy(math.random(player.x, window_width), math.random(player.y, window_height), 50, 50)) end) 
 end
 
 function love.keypressed(key)
@@ -108,7 +108,7 @@ function love.draw()
         v:draw()
     end
 
-    -- For every bullet in the table
+    -- For every bullet from the enemy in the table
     for i,v in ipairs(listOfBulletsFromEnemies) do
         -- Draw the bullet
         v:draw()
@@ -117,12 +117,12 @@ function love.draw()
     -- For every bullet of type 1 in the table
     for i,v in ipairs(listOfEnemies1) do
         -- Draw the enemy
-        v:draw()
+        v:draw("fill")
     end
 
     -- For every enemy of type 2 in the table
     for i,v in ipairs(listOfEnemies2) do
-        -- Move the enemy toward player
-        v:draw()
+        -- Draw the enemy
+        v:draw("line")
     end  
 end
