@@ -88,7 +88,7 @@ function love.update(dt)
 
     -- For every enemy of type 1 in the table
     for i,v in ipairs(listOfEnemies1) do
-        -- Check collision between same type of enemy and make them dissapear, if collided
+        -- Check collision between enemy of type 1 and make them dissapear, if collided
         if listOfEnemies1[i + 1] ~= nil then
             for j=1, i do
                 if listOfEnemies1[j] ~= listOfEnemies1[i] and checkCollision(listOfEnemies1[j], listOfEnemies1[i]) then
