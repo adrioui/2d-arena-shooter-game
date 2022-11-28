@@ -88,6 +88,16 @@ function love.update(dt)
 
     -- For every enemy of type 1 in the table
     for i,v in ipairs(listOfEnemies1) do
+        -- Check collision between same type of enemy and make them dissapear, if collided
+        if listOfEnemies1[i + 1] ~= nil then
+            for j=1, i do
+                if listOfEnemies1[j] ~= listOfEnemies1[i] and checkCollision(listOfEnemies1[j], listOfEnemies1[i]) then
+                    table.remove(listOfEnemies1, i)
+                    table.remove(listOfEnemies1, j)
+                end
+            end
+        end
+
         -- Move the enemy toward player
         v:update(dt, (player.y + player.height/2), (player.x + player.width/2))
 
