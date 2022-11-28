@@ -65,11 +65,6 @@ function Player:draw()
     -- Draw a rectangle
     love.graphics.rectangle("line", self.x, self.y, self.width, self.height)
 
-    -- Draw a right triangle
-    love.graphics.line((self.x + self.width/2), (self.y + self.height/2), mouse_x, (self.y + self.height/2))
-    love.graphics.line((self.x + self.width/2), (self.y + self.height/2), mouse_x, mouse_y)
-    love.graphics.line(mouse_x, (self.y + self.height/2), mouse_x, mouse_y)
-
-    -- -- Draw the outside circle with the distance as its radius
-    love.graphics.circle("line", (self.x + self.width/2), (self.y + self.height/2), self.distance)
+    -- Draw a dot that represents the mouse cursor
+    love.graphics.rectangle("fill", mouse_x, mouse_y, 5, 5, (self.x + self.width/2), (self.y + self.height/2))
 end
