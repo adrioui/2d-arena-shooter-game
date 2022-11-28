@@ -26,9 +26,7 @@ end
 
 -- Enemy shoot bullet
 function Enemy:shoot()
-    table.insert(listOfBulletsFromEnemies, 
-            Bullet((self.x + self.width/2), (self.y + self.height/2), player.angle, player.cos, player.sin))
-    return true
+    table.insert(listOfBulletsFromEnemies, Bullet((self.x + self.width/2), (self.y + self.height/2), player.angle, player.cos, player.sin))
 end
 
 -- Draw the enemy

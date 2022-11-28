@@ -92,7 +92,7 @@ function love.update(dt)
     for i,v in ipairs(listOfEnemies2) do
         -- Move the enemy toward player
         v:update(dt, (player.y + player.height/2), (player.x + player.width/2))
-        
+
         -- Shoot bullets
         v:shoot()
 
@@ -100,9 +100,12 @@ function love.update(dt)
         if checkCollision(v, player) then
             -- Delete the enemy and the bullets
             table.remove(listOfEnemies2, i)
-            table.remove(listOfBulletsFromEnemies, i)
         end
     end  
+
+    for i,v in ipairs(listOfBulletsFromEnemies) do
+        v:update(dt)
+    end
 end
 
 function love.draw()
