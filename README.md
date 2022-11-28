@@ -9,9 +9,9 @@ I'm hoping this game will make the player happy.
 ### How to download
 1. Download and install [LÖVE](https://www.love2d.org/) for your computer.
 
-2. Download this zip file [2d Arena Shooter Game](https://drive.google.com/file/d/1cBo7Y07ilEMbzg_7tQlt4mxW592NeW_Z/view?usp=sharing).
+2. Download this file [2d Arena Shooter Game](https://drive.google.com/file/d/1J_Jc0dZ2I1OfY_mrfS56QxpFQ1Lr87gn/view?usp=share_link).
 
-3. Unzip all the files in a folder, and run the .exe file. 
+3. Run the .love file. Enjoy the game :). 
 
 ### How to play
 Move your mouse cursor to move the ship; ship follows the mouse cursor. 
@@ -35,4 +35,7 @@ because I incorporated other feature that would make a bullet dissapear 4 second
 27/11/2022: Add enemy that shoot bullets toward the player.
 
 28/11/2022: Change the previous feature. Make the enemy firing bullets toward the same direction as the bullets fired from the player. 
+
+28/11/2022: Make the enemy firing bullets toward the player. Check collision between enemies of type 1 and make them dissapear 
+if collided.
  
