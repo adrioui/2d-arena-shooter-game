@@ -125,13 +125,13 @@ function love.draw()
     -- For every bullet in the table
     for i,v in ipairs(listOfBullets) do
         -- Draw the bullet
-        v:draw()
+        v:draw("fill")
     end
 
     -- For every bullet from the enemy in the table
     for i,v in ipairs(listOfBulletsFromEnemies) do
         -- Draw the bullet
-        v:draw()
+        v:draw("line")
     end
 
     -- For every bullet of type 1 in the table

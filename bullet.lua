@@ -46,7 +46,7 @@ function Bullet:checkCollision(target_x, target_y)
     end
 end
 
-function Bullet:draw()
+function Bullet:draw(mode)
     -- Draw the bullet
-    love.graphics.rectangle("fill", self.x, self.y, self.width, self.height)
+    love.graphics.rectangle(mode, self.x, self.y, self.width, self.height)
 end
