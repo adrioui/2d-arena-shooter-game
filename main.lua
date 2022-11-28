@@ -95,6 +95,13 @@ function love.update(dt)
         
         -- Shoot bullets
         v:shoot()
+
+        -- Check collision
+        if checkCollision(v, player) then
+            -- Delete the enemy and the bullets
+            table.remove(listOfEnemies2, i)
+            table.remove(listOfBulletsFromEnemies, i)
+        end
     end  
 end
 
