@@ -41,7 +41,7 @@ function love.load()
     listOfEnemies1 = {}
     listOfEnemies2 = {}
 
-    -- Create enemy
+    -- Create enemy of type 1 and type 2
     timer:every(1, function() table.insert(listOfEnemies1, Enemy(math.random(0, window_width), math.random(0, window_height), 35, 35)) end)
     timer:every(2, function() table.insert(listOfEnemies2, Enemy(math.random(player.x, window_width), math.random(player.y, window_height), 50, 50)) end) 
 end
