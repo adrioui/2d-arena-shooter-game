@@ -14,8 +14,12 @@ I'm hoping this game will make the player happy.
 3. Unzip all the files in a folder, and run the .exe file. 
 
 ### How to play
-Move your mouse cursor to move the ship; ship follows the mouse cursor. The farther the cursor to the ship the faster it moves.
+Move your mouse cursor to move the ship; ship follows the mouse cursor. 
+
+The farther the cursor to the ship the faster it moves.
+
 Press spacebar to fire the bullet from the ship and aim using the mouse cursor.
+
 Enemy will spawn at random places and follow the ship wherever the ship moves. Fire them to make them dissapear.
 
 #### Current updates
