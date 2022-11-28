@@ -26,5 +26,6 @@ because I incorporated other feature that would make a bullet dissapear 4 second
 
 #### Latest updates
 27/11/2022: Add enemy that shoot bullets toward the player.
+
 28/11/2022: Change the previous feature. Make the enemy firing bullets toward the same direction as the bullets fired from the player. 
  
