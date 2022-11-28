@@ -22,8 +22,9 @@ And check collision between the bullet and enemy.
 26/11/2022: Make the bullet dissapear after 4 seconds it fired from the ship.
 
 27/11/2022: Added a feature so that when the bullet hit the enemy, they both will dissapear. Previously this feature didn't work
-because I incorporated other feature that would make a bullet dissapear 4 seconds after the player firing it. 
+because I incorporated other feature that would make a bullet dissapear 4 seconds after the player firing it.
 
-#### Latest update
+#### Latest updates
 27/11/2022: Add enemy that shoot bullets toward the player.
+28/11/2022: Change the previous feature. Make the enemy firing bullets toward the same direction as the bullets fired from the player. 
  
