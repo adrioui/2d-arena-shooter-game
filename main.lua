@@ -65,7 +65,7 @@ function love.update(dt)
         -- Check its collision with the window
         v:checkCollision(window_width, window_height) 
         
-        -- For every enemy type 1 in the table
+        -- For every enemy of type 1 in the table
         for j,k in ipairs(listOfEnemies1) do
             -- If enemy exists and the bullet and enemy collide
             if k ~= nil and checkCollision(v, k) then
@@ -76,7 +76,7 @@ function love.update(dt)
         end
     end
 
-    -- For every enemy type 1 in the table
+    -- For every enemy of type 1 in the table
     for i,v in ipairs(listOfEnemies1) do
         -- Move the enemy toward player
         v:update(dt, (player.y + player.height/2), (player.x + player.width/2))
@@ -88,7 +88,7 @@ function love.update(dt)
         end
     end
     
-    -- For every enemy type 2 in the table
+    -- For every enemy of type 2 in the table
     for i,v in ipairs(listOfEnemies2) do
         -- Move the enemy toward player
         v:update(dt, (player.y + player.height/2), (player.x + player.width/2))
@@ -114,13 +114,13 @@ function love.draw()
         v:draw()
     end
 
-    -- For every bullet type 1 in the table
+    -- For every bullet of type 1 in the table
     for i,v in ipairs(listOfEnemies1) do
         -- Draw the enemy
         v:draw()
     end
 
-    -- For every enemy type 2 in the table
+    -- For every enemy of type 2 in the table
     for i,v in ipairs(listOfEnemies2) do
         -- Move the enemy toward player
         v:draw()
