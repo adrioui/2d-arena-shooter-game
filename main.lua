@@ -43,7 +43,7 @@ function love.load()
 
     -- Create enemy of type 1 and type 2
     timer:every(1, function() table.insert(listOfEnemies1, Enemy(math.random(0, window_width), math.random(0, window_height), 35, 35)) end)
-    timer:every(2, function() table.insert(listOfEnemies2, Enemy(math.random(player.x, window_width), math.random(player.y, window_height), 50, 50)) end) 
+    timer:every(2, function() table.insert(listOfEnemies2, Enemy(math.random(0, window_width), math.random(0, window_height), 50, 50)) end) 
 end
 
 function love.keypressed(key)
@@ -91,7 +91,7 @@ function love.update(dt)
         -- Check collision between enemy of type 1 and make them dissapear, if collided
         if listOfEnemies1[i + 1] ~= nil then
             for j=1, i do
-                if listOfEnemies1[j] ~= listOfEnemies1[i] and checkCollision(listOfEnemies1[j], listOfEnemies1[i]) then
+                if listOfEnemies1[i] ~= nil and listOfEnemies1[j] ~= listOfEnemies1[i] and checkCollision(listOfEnemies1[j], listOfEnemies1[i]) then
                     table.remove(listOfEnemies1, i)
                     table.remove(listOfEnemies1, j)
                 end
@@ -110,6 +110,16 @@ function love.update(dt)
     
     -- For every enemy of type 2 in the table
     for i,v in ipairs(listOfEnemies2) do
+        -- Check collision between enemy of type 1 and make them dissapear, if collided
+        if listOfEnemies2[i + 1] ~= nil then
+            for j=1, i do
+                if listOfEnemies2[i] ~= nil and listOfEnemies2[j] ~= listOfEnemies2[i] and checkCollision(listOfEnemies2[j], listOfEnemies2[i]) then
+                    table.remove(listOfEnemies2, i)
+                    table.remove(listOfEnemies2, j)
+                end
+            end
+        end
+
         -- Move the enemy toward player
         v:update(dt, (player.y + player.height/2), (player.x + player.width/2))
 
