@@ -40,4 +40,7 @@ because I incorporated other feature that would make a bullet dissapear 4 second
 if collided.
 
 29/11/2022: Check collision between enemies of type 2 and make them dissapear if collided.
+
+#### TODO:
+Prevent enemies for overlapping.
  
