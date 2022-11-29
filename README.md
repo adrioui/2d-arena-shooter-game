@@ -7,11 +7,11 @@ I'm taking inspiration from games that I like the most when I was a kid: arena s
 I'm hoping this game will make the player happy.
 
 ### How to download
-1. Download and install [LÖVE](https://www.love2d.org/) for your computer.
+1. Download and install [LÖVE](https://www.love2d.org/) in your computer.
 
 2. Download this file [2d Arena Shooter Game](https://drive.google.com/file/d/11Lcp0zCnyubbfjD_27RK4mgf7xDnkIUv/view?usp=share_link).
 
-3. Run the .love file. Enjoy the game :). 
+3. Run the .love file and enjoy the game :). 
 
 ### How to play
 Move your mouse cursor to move the ship; ship follows the mouse cursor. 
