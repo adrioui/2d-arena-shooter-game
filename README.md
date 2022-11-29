@@ -9,7 +9,7 @@ I'm hoping this game will make the player happy.
 ### How to download
 1. Download and install [LÖVE](https://www.love2d.org/) for your computer.
 
-2. Download this file [2d Arena Shooter Game](https://drive.google.com/file/d/1J_Jc0dZ2I1OfY_mrfS56QxpFQ1Lr87gn/view?usp=share_link).
+2. Download this file [2d Arena Shooter Game](https://drive.google.com/file/d/11Lcp0zCnyubbfjD_27RK4mgf7xDnkIUv/view?usp=share_link).
 
 3. Run the .love file. Enjoy the game :). 
 
