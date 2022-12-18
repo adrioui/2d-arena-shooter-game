@@ -1,26 +1,8 @@
-function checkCollision(a, b)
-    --With locals it's common usage to use underscores instead of camelCasing
-    local a_left = a.x
-    local a_right = a.x + a.width
-    local a_top = a.y
-    local a_bottom = a.y + a.height
-
-    local b_left = b.x
-    local b_right = b.x + b.width
-    local b_top = b.y
-    local b_bottom = b.y + b.height
-
-    --Directly return this boolean value without using if-statement
-    return  a_right > b_left
-        and a_left < b_right
-        and a_bottom > b_top
-        and a_top < b_bottom
-end
-
 function love.load()
     -- Import the libraries
     Object = require "library.classic"
     Timer = require "library.timer"
+    require "library.collision"
     require "player"
     require "bullet"
     require"enemy"
@@ -91,9 +73,11 @@ function love.update(dt)
         -- Check collision between enemy of type 1 and make them dissapear, if collided
         if listOfEnemies1[i + 1] ~= nil then
             for j=1, i do
-                if listOfEnemies1[i] ~= nil and listOfEnemies1[j] ~= listOfEnemies1[i] and checkCollision(listOfEnemies1[j], listOfEnemies1[i]) then
-                    table.remove(listOfEnemies1, i)
-                    table.remove(listOfEnemies1, j)
+                if listOfEnemies1[i] ~= nil and listOfEnemies1[j] ~= listOfEnemies1[i] then
+                    rectCollision(listOfEnemies1[i], listOfEnemies1[j])
+                    if xCollide and yCollide then
+                        collisionRespo(listOfEnemies1[i], listOfEnemies1[j])
+                    end
                 end
             end
         end
@@ -113,9 +97,11 @@ function love.update(dt)
         -- Check collision between enemy of type 1 and make them dissapear, if collided
         if listOfEnemies2[i + 1] ~= nil then
             for j=1, i do
-                if listOfEnemies2[i] ~= nil and listOfEnemies2[j] ~= listOfEnemies2[i] and checkCollision(listOfEnemies2[j], listOfEnemies2[i]) then
-                    table.remove(listOfEnemies2, i)
-                    table.remove(listOfEnemies2, j)
+                if listOfEnemies2[i] ~= nil and listOfEnemies2[j] ~= listOfEnemies2[i] then
+                    rectCollision(listOfEnemies2[i], listOfEnemies2[j])
+                    if xCollide and yCollide then
+                        collisionRespo(listOfEnemies2[i], listOfEnemies2[j])
+                    end
                 end
             end
         end
