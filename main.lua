@@ -74,7 +74,7 @@ function love.update(dt)
 
     -- For every enemy of type 1 in the table
     for i,v in ipairs(listOfEnemies1) do
-        -- Check collision between enemy of type 1 and make them dissapear, if collided
+        -- Check collision between enemy of type 1 and prevent them from overlapping
         if listOfEnemies1[i + 1] ~= nil then
             for j=1, i do
                 if listOfEnemies1[i] ~= nil and listOfEnemies1[j] ~= listOfEnemies1[i] then
@@ -96,7 +96,7 @@ function love.update(dt)
             table.remove(listOfEnemies1, i)
         end
 
-        -- If the player and the enemy collide three times
+        -- If the player and the enemy collide five times
         if enemyAndPlayerCollisions == 5 then
             -- Reload the game
             love.load()
@@ -105,7 +105,7 @@ function love.update(dt)
     
     -- For every enemy of type 2 in the table
     for i,v in ipairs(listOfEnemies2) do
-        -- Check collision between enemy of type 1 and make them dissapear, if collided
+        -- Check collision between enemy of type 2 and prevent them from overlapping
         if listOfEnemies2[i + 1] ~= nil then
             for j=1, i do
                 if listOfEnemies2[i] ~= nil and listOfEnemies2[j] ~= listOfEnemies2[i] then
@@ -130,14 +130,20 @@ function love.update(dt)
         end
     end  
 
+    -- For every bullet from enemies
     for i,v in ipairs(listOfBulletsFromEnemies) do
+        -- Move the bullets to the player
         v:update(dt)
 
+        -- If the player collides with bullet
         if checkCollision(v, player) then
+            -- Add the count
             bulletAndPlayerCollisions = bulletAndPlayerCollisions + 1
         end
 
+        -- If the player hitted 400 times by the bullets
         if bulletAndPlayerCollisions == 400 then
+            -- Restart the game
             love.load()
         end
     end
