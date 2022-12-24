@@ -34,15 +34,19 @@ function Bullet:checkCollision(target_x, target_y)
     if self.x > target_x - self.width then
         self.x = target_x - self.width
         self.dx = -self.dx
+        return true
     elseif self.x < self.width then
         self.x = self.width
         self.dx = -self.dx
+        return true
     elseif self.y > target_y - self.height then
         self.y = target_y - self.height
         self.dy = -self.dy
+        return true
     elseif self.y < self.height then
         self.y = self.height
         self.dy = -self.dy
+        return true
     end
 end
 

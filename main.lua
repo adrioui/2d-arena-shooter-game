@@ -24,8 +24,12 @@ function love.load()
     listOfEnemies2 = {}
 
     -- Create enemy of type 1 and type 2
-    timer:every(1, function() table.insert(listOfEnemies1, Enemy(math.random(0, window_width), math.random(0, window_height), 35, 35)) end)
-    timer:every(2, function() table.insert(listOfEnemies2, Enemy(math.random(0, window_width), math.random(0, window_height), 50, 50)) end) 
+    timer:every(0.4, function() table.insert(listOfEnemies1, Enemy(math.random(0, window_width), math.random(0, window_height), 35, 35)) end)
+    timer:every(0.4, function() table.insert(listOfEnemies2, Enemy(math.random(0, window_width), math.random(0, window_height), 50, 50)) end) 
+
+    -- Count the collisions
+    enemyAndPlayerCollisions = 0
+    bulletAndPlayerCollisions = 0
 end
 
 function love.keypressed(key)
@@ -44,9 +48,9 @@ function love.update(dt)
     for i,v in ipairs(listOfBullets) do
         -- Update the bullet
         v:update(dt)
-        -- Check its collision with the window
-        v:checkCollision(window_width, window_height) 
-        
+
+        v:checkCollision(window_width, window_height)
+
         -- For every enemy of type 1 in the table
         for j,k in ipairs(listOfEnemies1) do
             -- If enemy exists and the bullet and enemy collide
@@ -87,8 +91,15 @@ function love.update(dt)
 
         -- If the enemy and player collided
         if checkCollision(v, player) then
-            -- Make the enemy dissapear
+            -- Add one to the count of collision and make the enemy dissapear 
+            enemyAndPlayerCollisions = enemyAndPlayerCollisions + 1
             table.remove(listOfEnemies1, i)
+        end
+
+        -- If the player and the enemy collide three times
+        if enemyAndPlayerCollisions == 5 then
+            -- Reload the game
+            love.load()
         end
     end
     
@@ -121,6 +132,14 @@ function love.update(dt)
 
     for i,v in ipairs(listOfBulletsFromEnemies) do
         v:update(dt)
+
+        if checkCollision(v, player) then
+            bulletAndPlayerCollisions = bulletAndPlayerCollisions + 1
+        end
+
+        if bulletAndPlayerCollisions == 400 then
+            love.load()
+        end
     end
 end
 
@@ -151,4 +170,7 @@ function love.draw()
         -- Draw the enemy
         v:draw("line")
     end  
+
+    love.graphics.print(string.format("Enemy collisions: %d", enemyAndPlayerCollisions), 10, 10)    
+    love.graphics.print(string.format("Bullet collisions: %d", bulletAndPlayerCollisions), 10, 30)    
 end

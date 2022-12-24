@@ -38,7 +38,11 @@ function Player:keyPressed(key)
     if key == "space" then
         -- Put a new instance of Bullet inside listOfBullets
         -- Fire the bullets from the center of the character
-        table.insert(listOfBullets, Bullet((self.x + self.width/2), (self.y + self.height/2), self.angle, self.cos, self.sin))
+        bullet_positions = {1/10, 1/2, 1}
+        for i,v in ipairs(bullet_positions) do
+            table.insert(listOfBullets, Bullet((self.x + self.width*v), (self.y + self.height*v), 
+                        self.angle, self.cos, self.sin))
+        end
     end
 end
 
