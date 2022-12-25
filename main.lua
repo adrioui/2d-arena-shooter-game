@@ -24,12 +24,11 @@ function love.load()
     listOfEnemies2 = {}
 
     -- Create enemy of type 1 and type 2
-    timer:every(0.4, function() table.insert(listOfEnemies1, Enemy(math.random(0, window_width), math.random(0, window_height), 35, 35)) end)
-    timer:every(0.4, function() table.insert(listOfEnemies2, Enemy(math.random(0, window_width), math.random(0, window_height), 50, 50)) end) 
+    timer:every(0.3, function() table.insert(listOfEnemies1, Enemy(math.random(0, window_width), 0, "static/enemy1.png")) end)
+    timer:every(3, function() table.insert(listOfEnemies2, Enemy(math.random(0, window_width), 0, "static/enemy2.png")) end) 
 
-    -- Count the collisions
-    enemyAndPlayerCollisions = 0
-    bulletAndPlayerCollisions = 0
+    -- Load images
+    background = love.graphics.newImage("static/background.png")
 end
 
 function love.keypressed(key)
@@ -85,14 +84,14 @@ function love.update(dt)
                 end
             end
         end
-
+        
         -- Move the enemy toward player
         v:update(dt, (player.y + player.height/2), (player.x + player.width/2))
 
         -- If the enemy and player collided
         if checkCollision(v, player) then
             -- Add one to the count of collision and make the enemy dissapear 
-            enemyAndPlayerCollisions = enemyAndPlayerCollisions + 1
+            player.health = player.health - 5
             table.remove(listOfEnemies1, i)
         end
 
@@ -137,19 +136,26 @@ function love.update(dt)
 
         -- If the player collides with bullet
         if checkCollision(v, player) then
-            -- Add the count
-            bulletAndPlayerCollisions = bulletAndPlayerCollisions + 1
-        end
+            -- Decrease the player's health
+            player.health = player.health - 0.09
+        end        --  
+    end
 
-        -- If the player hitted 400 times by the bullets
-        if bulletAndPlayerCollisions == 400 then
-            -- Restart the game
-            love.load()
-        end
+    -- If the ship dies
+    if player.health <= 0 then
+        -- Restart the game
+        love.load()
     end
 end
 
 function love.draw()
+    -- Draw the background
+    for i = 0, love.graphics.getWidth() / background:getWidth() do
+        for j = 0, love.graphics.getHeight() / background:getHeight() do
+            love.graphics.draw(background, i * background:getWidth(), j * background:getHeight())
+        end
+    end
+
     -- Draw the player
     player:draw()
 
@@ -177,6 +183,13 @@ function love.draw()
         v:draw("line")
     end  
 
-    love.graphics.print(string.format("Enemy collisions: %d", enemyAndPlayerCollisions), 10, 10)    
-    love.graphics.print(string.format("Bullet collisions: %d", bulletAndPlayerCollisions), 10, 30)    
+	-- Stamina bar
+    love.graphics.print("Stamina: ", 10, 40)
+    love.graphics.rectangle("line", 70, 43, 100, 10)
+    love.graphics.rectangle("fill", 70, 43, player.stamina, 10)
+
+    -- Health bar
+    love.graphics.print("Health: ", 10, 70)
+    love.graphics.rectangle("line", 70, 73, 100, 10)
+    love.graphics.rectangle("fill", 70, 73, player.health, 10)
 end

@@ -2,14 +2,17 @@
 Enemy = Object:extend()
 
 -- Initiate the enemy
-function Enemy:new(x, y, width, height) 
+function Enemy:new(x, y, image) 
     self.x = x
     self.y = y
     
-    self.width = width
-    self.height = height
-
     self.speed = 200
+
+    self.image = love.graphics.newImage(image)
+    self.width = self.image:getWidth()
+    self.height = self.image:getHeight()
+    self.origin_x = self.width / 2
+    self.origin_y = self.height / 2
 end
 
 -- Credit to someone in stackoverflow
@@ -26,11 +29,12 @@ end
 
 -- Enemy shoot bullet
 function Enemy:shoot()
-    table.insert(listOfBulletsFromEnemies, Bullet((self.x + self.width/2), (self.y + self.height/2), self.angle, self.cos, self.sin))
+    table.insert(listOfBulletsFromEnemies, Bullet((self.x + self.width/2), (self.y + self.height/2), 
+    self.angle, self.cos, self.sin, "static/enemy_bullet.png"))
 end
 
 -- Draw the enemy
 function Enemy:draw(mode)
-    love.graphics.rectangle(mode, self.x, self.y, self.width, self.height)
+    love.graphics.draw(self.image, self.x, self.y, self.angle, 2, 2, self.origin_x, self.origin_y)
 end
     

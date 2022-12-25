@@ -4,14 +4,27 @@ Player = Object:extend()
 
 function Player:new()
     -- Create an object
-    -- Give it the properties x, y, radius and speed
-    self.x = 100
-    self.y = 500
+    -- Give it the properties
+    self.x = 200
+    self.y = 200
 
     self.width = 25
     self.height = 25
 
+    self.angle = 0
     self.speed = 300
+
+    -- Load the image
+    self.image = love.graphics.newImage("static/player.png")
+    self.origin_x = self.image:getWidth() / 2
+    self.origin_y = self.image:getHeight() / 2
+
+    -- Health and stamina
+    self.health = 100
+    self.stamina = 100
+    
+    -- Has stamina
+    self.empty = false
 end
 
 -- Get the distance from the circle to the mouse cursor using pythagorean theorem
@@ -38,13 +51,25 @@ function Player:keyPressed(key)
     if key == "space" then
         -- Put a new instance of Bullet inside listOfBullets
         -- Fire the bullets from the center of the character
-        
-        -- Set position for the three bullets
-        bullet_positions = {1/10, 1/2, 1}
-        for i,v in ipairs(bullet_positions) do
-            -- Create three bullets with different positions
-            table.insert(listOfBullets, Bullet((self.x + self.width*v), (self.y + self.height*v), 
-                        self.angle, self.cos, self.sin))
+
+        -- Decrease the stamina everytime the bullets are fired from player
+        self.stamina = self.stamina - 4
+
+        -- If there is stamina
+        if self.stamina > 0 and self.empty == false then
+            -- Set position for the three bullets
+            bullet_positions = {100, 2.7, 1.5}
+            for i,v in ipairs(bullet_positions) do
+                -- Create three bullets with different positions
+                table.insert(listOfBullets, Bullet((self.x + self.width/v), (self.y + self.height/v), 
+                            self.angle, self.cos, self.sin, "static/player_bullet.png"))
+            end
+            
+        -- If there is no stamina
+        else
+            -- Set the stamina to zero and empty the stamina
+            self.stamina = 0
+            self.empty = true
         end
     end
 end
@@ -63,15 +88,28 @@ function Player:update(dt)
     -- Get the distance between the circle and the mouse
     self.distance = Player:getDistance(self.x, self.y, mouse_x, mouse_y)
 
-    -- Move the circle
+    -- Move the ship
     self.x = self.x + self.speed * self.cos * (self.distance/150) * dt
     self.y = self.y + self.speed * self.sin * (self.distance/150) * dt
+
+    -- If stamina is zero and empty
+    if self.stamina == 0 and self.empty == true then
+        -- For every half a second
+        timer:every(0.5, function()
+            -- If stamina is empty and not full 
+            if self.stamina ~= 100 and self.empty == true then 
+                -- Increase the stamina until it's full
+                self.stamina = self.stamina + 0.5 
+            -- If there is stamina
+            else
+                -- Stamina not empty
+                self.empty = false
+            end 
+        end)             
+    end
 end
 
 function Player:draw()
-    -- Draw a rectangle
-    love.graphics.rectangle("line", self.x, self.y, self.width, self.height)
-
-    -- Draw a line that represents the distance between the player and mouse cursor
-    love.graphics.line((self.x + self.width/2), (self.y + self.height/2), mouse_x, mouse_y)
+    -- Draw the ship
+    love.graphics.draw(self.image, self.x, self.y, self.angle, 1, 1, self.origin_x, self.origin_y)
 end

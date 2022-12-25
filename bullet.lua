@@ -2,7 +2,7 @@
 Bullet = Object:extend()
 
 -- Initialize the object
-function Bullet:new(x, y, distance, cos, sin)
+function Bullet:new(x, y, distance, cos, sin, image)
     -- The position
     self.x = x
     self.y = y
@@ -20,6 +20,9 @@ function Bullet:new(x, y, distance, cos, sin)
     -- Point the bullet to where the mouse cursor at
     self.dx = self.speed * cos
     self.dy = self.speed * sin
+
+    -- Bullet image
+    self.image = love.graphics.newImage(image)
 end
 
 function Bullet:update(dt)
@@ -52,5 +55,5 @@ end
 
 function Bullet:draw(mode)
     -- Draw the bullet
-    love.graphics.rectangle(mode, self.x, self.y, self.width, self.height)
+    love.graphics.draw(self.image, self.x, self.y, 3, 3)
 end
