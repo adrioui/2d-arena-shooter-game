@@ -3,6 +3,8 @@ Note: this game is still under development.
 ## 2d Arena Shooter game made with LÖVE framework in lua for CS50 final project.
 
 ### Background
+This is a game I made using Lua with LOVE2D framework. I chose my final project to be a game development project because from the early age I love playing games. Well actually, I played game a lot. I decided to go with top down shooter because it is one of my favorite genres of game: fun to play and challenging! This development proccess took quite some time and was kind of hard to me because this is my first time developing a game. I'm currently having a job so I took my leisure after work to finish this game. I did my best.
+
 I'm taking inspiration from games that I like the most when I was a kid: arena shooter games. 
 I'm hoping this game will make the player happy.
 
