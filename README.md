@@ -1,34 +1,56 @@
-# 2d-arena-shooter-game
+<h1 align="center">Welcome to 2d-arena-shooter-game 👋</h1>
+<p>
+  <img alt="Version" src="https://img.shields.io/badge/version-1.0.0-blue.svg?cacheSeconds=2592000" />
+  <a href="#" target="_blank">
+    <img alt="License: ISC" src="https://img.shields.io/badge/License-ISC-yellow.svg" />
+  </a>
+</p>
 
-## Space Shooter!
-## 2d Arena Shooter game made with LOVE2D framework in Lua for CS50 final project.
+> Welcome to my game, Space Shooter! I developed this game using Lua with the LOVE2D framework as my final project for CS50. As a lifelong gamer, I decided to explore game development for my project. Top-down shooters have always been one of my favorite genres because they are both fun and challenging. Although this was my first time developing a game, I dedicated my leisure time after work to bring this game to life. It was a challenging process, but I'm proud of what I have accomplished. I drew inspiration from the arena shooter games that I loved playing as a child. My goal was to create a game that would bring joy to the players.
 
-### Background
-This is a game I made using Lua with LOVE2D framework. I chose my final project to be a game development project because from the early age I love playing games. Well actually, I played game a lot. I decided to go with top down shooter because it is one of my favorite genres of game: fun to play and challenging! This development proccess took quite some time and was kind of hard to me because this is my first time developing a game. I'm currently having a job (thanks to CS50!) so I took my leisure after work time to finish this game. I did my best.
+### ✨ [Demo](https://youtu.be/Peyyh58tbJI)
 
-I'm taking inspiration from games that I like the most when I was a kid: arena shooter games. 
-I'm hoping this game will make the player happy.
+## Install
 
-### How to download
+```sh
 1. Download and install [LÖVE](https://www.love2d.org/) in your computer.
 
 2. Download this file [2d Arena Shooter Game](https://drive.google.com/file/d/1Big9nBU73cy5yMnqJgxwfBocE6nCqPP5/view?usp=sharing).
 
 3. Run the .love file and enjoy the game :). 
+```
 
-### How to play
-Move your mouse cursor to move the ship; ship follows the mouse cursor. 
+## Usage
 
-The farther the cursor to the ship the faster it moves.
+```sh
+Move your mouse cursor to control the spaceship. The ship will follow the cursor's movements.
 
-Press spacebar to fire the bullet from the ship and aim using the mouse cursor
+The ship's speed increases the farther away the cursor is from the ship.
 
-Enemy will spawn at random places and follow the ship wherever the ship moves. Fire them to make them dissapear.
+Press the spacebar to fire bullets from the ship. Aim your shots using the mouse cursor.
 
-There are two types of enemy. The one that will only chase you and the one that will chase and fire bullets continuously toward you
+Enemies will spawn randomly and relentlessly chase your ship. Shoot them to make them disappear.
 
-Game will restart if your health bar reach 0. 
+Be cautious, as there are two types of enemies: some will only chase you, while others will continuously fire bullets at you.
 
-Fuel decreased every time you fire the bullets. Be smart!
+Your health bar will decrease if you get hit by enemy fire. If it reaches zero, the game will restart.
 
-You have to survive!!
+Keep an eye on your fuel level. It decreases each time you fire bullets. Use your shots wisely!
+
+Your ultimate objective is to survive the onslaught of enemies and emerge victorious!
+
+Feel the adrenaline rush as you navigate through the intense battles of Space Shooter! Get ready for a thrilling and challenging gaming experience.
+
+Now, buckle up and show the universe what you're made of!
+```
+
+## Author
+
+* Github: [@adrioui](https://github.com/adrioui)
+
+## Show your support
+
+Give a ⭐️ if this project helped you!
+
+***
+_This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_
