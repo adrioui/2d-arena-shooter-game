@@ -8,6 +8,8 @@
 
 > Welcome to my game, Space Shooter! I developed this game using Lua with the LOVE2D framework as my final project for CS50. As a lifelong gamer, I decided to explore game development for my project. Top-down shooters have always been one of my favorite genres because they are both fun and challenging. Although this was my first time developing a game, I dedicated my leisure time after work to bring this game to life. It was a challenging process, but I'm proud of what I have accomplished. I drew inspiration from the arena shooter games that I loved playing as a child. My goal was to create a game that would bring joy to the players.
 
+<img  alt="Game Image" src="C:/Users/Keluarga/Pictures/Screenshots/Screenshot (88).png">
+
 ### ✨ [Demo](https://youtu.be/Peyyh58tbJI)
 
 ## Install
