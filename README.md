@@ -20,21 +20,21 @@
 
 ## How to Play
 
-⋅⋅* Move your mouse cursor to control the spaceship. The ship will follow the cursor's movements.
+- Move your mouse cursor to control the spaceship. The ship will follow the cursor's movements.
 
-⋅⋅* The ship's speed increases the farther away the cursor is from the ship.
+- The ship's speed increases the farther away the cursor is from the ship.
 
-⋅⋅* Press the spacebar to fire bullets from the ship. Aim your shots using the mouse cursor.
+- Press the spacebar to fire bullets from the ship. Aim your shots using the mouse cursor.
 
-⋅⋅* Enemies will spawn randomly and relentlessly chase your ship. Shoot them to make them disappear.
+- Enemies will spawn randomly and relentlessly chase your ship. Shoot them to make them disappear.
 
-⋅⋅* Be cautious, as there are two types of enemies: some will only chase you, while others will continuously fire bullets at you.
+- Be cautious, as there are two types of enemies: some will only chase you, while others will continuously fire bullets at you.
 
-⋅⋅* Your health bar will decrease if you get hit by enemy fire. If it reaches zero, the game will restart.
+- Your health bar will decrease if you get hit by enemy fire. If it reaches zero, the game will restart.
 
-⋅⋅* Keep an eye on your fuel level. It decreases each time you fire bullets. Use your shots wisely!
+- Keep an eye on your fuel level. It decreases each time you fire bullets. Use your shots wisely!
 
-⋅⋅* Your ultimate objective is to survive the onslaught of enemies and emerge victorious!
+- Your ultimate objective is to survive the onslaught of enemies and emerge victorious!
 
 Feel the adrenaline rush as you navigate through the intense battles of Space Shooter! Get ready for a thrilling and challenging gaming experience.
 
