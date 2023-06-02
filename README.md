@@ -12,13 +12,11 @@
 
 ## Install
 
-```sh
 1. Download and install [LÖVE](https://www.love2d.org/) in your computer.
 
 2. Download this file [2d Arena Shooter Game](https://drive.google.com/file/d/1Big9nBU73cy5yMnqJgxwfBocE6nCqPP5/view?usp=sharing).
 
 3. Run the .love file and enjoy the game :). 
-```
 
 ## Usage
 
